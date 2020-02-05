@@ -24,7 +24,7 @@ public class HelloProcessing extends PApplet
 		rect(50, 10, 100, 200); // tlx, tly, w, h
 		triangle(10, 10, 100, 90, 200, 200); // vertices	
 	}	
-	*/
+	
 
 	int x = 0; // 4 bytes
 	
@@ -36,5 +36,23 @@ public class HelloProcessing extends PApplet
 		fill(255);
 		ellipse(x, mouseY, 50, 50);		
 		x ++;
+	}
+	*/
+
+	public void draw()
+	{
+		background(255,0,0);
+		fill(255,255,0);
+		noStroke();
+		ellipse(250,300,400,400);
+		fill(0,255,255);
+		noStroke();
+		triangle(250,50,50,450,450,450);
+		fill(200);
+		noStroke();
+		ellipse(250,260,200,100);
+		fill(0);
+		noStroke();
+		ellipse(250,260,70,70);
 	}
 }
