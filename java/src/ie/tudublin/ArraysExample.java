@@ -16,7 +16,7 @@ public class ArraysExample extends PApplet
 	{
 		size(500, 500);
 	}
-
+/*
 	public void setup() 
 	{
 		for(int i = 0 ; i < rainFall.length; i ++)
@@ -61,7 +61,7 @@ public class ArraysExample extends PApplet
 		float min = Collections.min(Arrays.asList(floatArray)); 
         float max = Collections.max(Arrays.asList(floatArray));
 	}
-
+*/
 	void drawBarChart()
 	{
 		float w = width / (float) rainFall.length;
@@ -74,6 +74,35 @@ public class ArraysExample extends PApplet
 			fill(i * cGap, 255, 255);
 			rect(x, height, w, -rainFall[i]);
 		}
+	}
+
+	void drawLineChart()
+	{
+		float border = width / 10.0f;
+		textAlign(CENTER, CENTER);
+		for(int i = 0 ; i < rainFall.length-1 ; i ++)
+		{
+			float x = map(i, 0, 11, border, width - border);
+			float y = map(i + 1, 0, 11, border, width - border);
+			stroke(135,206,250);		
+			line(x, height-border-rainFall[i]*3, y, height-border-rainFall[i + 1]*3);
+			fill(255);
+			text(months[i], x, height - border/2);
+			stroke(255);
+			line(x, height - 4*border/5, x, height - border);
+		}
+		text(months[11], width-border, height - border/2);
+		for(int i = 0 ; i < 15 ; i ++)
+		{
+			float y = map(i, 0, 15, border, width - border);
+			fill(255);
+			text(10*i, border/2, height-y);
+			line(4*border/5, y, border, y);
+		}
+		text(150, border/2, border);
+		stroke(255);
+		line(border, border, border, height-border);
+		line(border, height-border, width-border, height-border);
 	}
 
 	public void keyPressed()
@@ -89,6 +118,6 @@ public class ArraysExample extends PApplet
 		background(0);		
 		colorMode(HSB);	
 
-		drawBarChart();
+		drawLineChart();
 	}
 }
