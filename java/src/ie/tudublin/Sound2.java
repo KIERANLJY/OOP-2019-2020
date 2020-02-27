@@ -23,6 +23,20 @@ public class Sound2 extends PApplet
 		colorMode(HSB);
 	}
 
+	int countZeroCrossings()
+	{
+		int count = 0;
+
+		for(int i = 1 ; i < as.bufferSize() ; i ++)
+		{
+			if (as.left.get(i-1) > 0 && as.left.get(i) <= 0)
+			{
+				count ++;
+			}
+		}
+		return count;
+	}
+
 	float lerpedw = 0;
 
 	public void keyPressed()
@@ -58,11 +72,13 @@ public class Sound2 extends PApplet
 			, 255
 		);
 		ellipse(400 , cy,w, w);
-		ellipse(600 , cy,lerpedw, lerpedw);		
+		ellipse(600 , cy,lerpedw, lerpedw);	
+		
+		int count = countZeroCrossings();
+		fill(255);
+		float freq = count;
+		textSize(22);
+		text(freq, 100, 50);
 	}
 
-	public int countZeroCrossings()
-	{
-		return 0;
-	}
 }
