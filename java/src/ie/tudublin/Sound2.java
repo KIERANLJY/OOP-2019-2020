@@ -59,5 +59,10 @@ public class Sound2 extends PApplet
 		);
 		ellipse(400 , cy,w, w);
 		ellipse(600 , cy,lerpedw, lerpedw);		
-}
+	}
+
+	public int countZeroCrossings()
+	{
+		return 0;
+	}
 }
